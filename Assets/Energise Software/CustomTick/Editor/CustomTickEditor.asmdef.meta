@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d5f6e3744f2acd04aa6342bff4408c5e
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318763
+  packageName: Custom Tick System
+  packageVersion: 1.0
+  assetPath: Assets/Energise Software/CustomTick/Editor/CustomTickEditor.asmdef
+  uploadId: 759548

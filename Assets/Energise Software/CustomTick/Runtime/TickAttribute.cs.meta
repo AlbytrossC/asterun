@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c682fa19dc9d06645a284212bd66d944
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318763
+  packageName: Custom Tick System
+  packageVersion: 1.0
+  assetPath: Assets/Energise Software/CustomTick/Runtime/TickAttribute.cs
+  uploadId: 759548

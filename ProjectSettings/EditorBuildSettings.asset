@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/_v0.1 (DEMO)/Scenes/DEMO_Main.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 0
+    path: Assets/_v0.1 (DEMO)/Scenes/DEMO_Minigame.unity
+    guid: 8eee7ebe85925e1469911c7b941ba6d6
+  - enabled: 0
+    path: Assets/_v0.2/2. Endless Level/PROTO_Level.unity
+    guid: 33c1bbf322ff14443b1aa8886107e6b2
+  - enabled: 0
+    path: Assets/_OLD_Asterun/1. Title/Title.unity
+    guid: 137f38c4d5ed06443ae586d245eed74a
+  - enabled: 1
+    path: Assets/_v0.4/Main.unity
+    guid: 0d25963604599b54795e4ab0ed2a95e6
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c2eb456e27d1d164f8723077dea1b145, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_UseUCBPForAssetBundles: 0

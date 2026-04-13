@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3cd128125eec63c46b7d828fc5d7dfd8
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318763
+  packageName: Custom Tick System
+  packageVersion: 1.0
+  assetPath: Assets/Energise Software/CustomTick/Runtime/Demo/CustomTickDemoScene.unity
+  uploadId: 759548

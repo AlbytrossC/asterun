@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: e55c2975f30846eb8dcde043ccf96688
+timeCreated: 1745958999
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318763
+  packageName: Custom Tick System
+  packageVersion: 1.0
+  assetPath: Assets/Energise Software/CustomTick/Runtime/ITickItem.cs
+  uploadId: 759548

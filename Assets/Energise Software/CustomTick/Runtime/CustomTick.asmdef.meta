@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8147f09133aa3f443880486993dce7b5
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 318763
+  packageName: Custom Tick System
+  packageVersion: 1.0
+  assetPath: Assets/Energise Software/CustomTick/Runtime/CustomTick.asmdef
+  uploadId: 759548
