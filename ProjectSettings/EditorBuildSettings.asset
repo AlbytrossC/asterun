@@ -20,8 +20,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_v0.4/Main.unity
     guid: 0d25963604599b54795e4ab0ed2a95e6
-  - enabled: 1
-    path: Assets/__ASTERUN/Scenes/Main.unity
+  - enabled: 0
+    path: Assets/__ASTERUN/Scenes/Main_OLD.unity
     guid: 8f14ddd737bc47a4cbc4b13d3fe59619
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c2eb456e27d1d164f8723077dea1b145, type: 2}

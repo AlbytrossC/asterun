@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class BoostManager : MonoBehaviour
 {
-    private XStatManager _Stats;
     private PlayerScript _Player;
 
     public UnityEvent onTriggered;
@@ -17,7 +16,6 @@ public class BoostManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _Stats = GetComponent<XStatManager>();
         _Player = GetComponent<PlayerScript>();
     }
     public void TriggerBoosts()
@@ -40,7 +38,7 @@ public class BoostManager : MonoBehaviour
         switch (ID)
         {
             case 0:
-                _Stats.AddCoins(1);
+                //AddCoins(1);
                 Debug.Log("Coins Added!");
                 break;
             case 1:
