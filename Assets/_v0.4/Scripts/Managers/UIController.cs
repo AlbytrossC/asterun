@@ -11,12 +11,24 @@ public class UIController : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject upgradesPanel;
     public GameObject boostPanel;
+    public GameObject pausePanel;
+    public GameObject PressToStart;
+
+    public List<string> panels = new List<string>();
 
     public List<GameObject> layerOrder = new List<GameObject>();
 
     private void OnEnable()
     {
         ShowPanelExclusive("home");
+        panels.Add("home");
+        panels.Add("run");
+        panels.Add("run/boost");
+        panels.Add("death");
+        panels.Add("settings");
+        panels.Add("upgrades");
+        panels.Add("pause");
+        panels.Add("PressToStart");
     }
 
     public void ShowPanelExclusive(string panel)
@@ -30,6 +42,7 @@ public class UIController : MonoBehaviour
         {
             case "home":
                 homePanel.SetActive(true);
+                PressToStart.SetActive(true);
                 bg.SetActive(false);
                 layerOrder.Add(homePanel);
                 Time.timeScale = 0;
@@ -37,6 +50,7 @@ public class UIController : MonoBehaviour
 
             case "run":
                 runPanel.SetActive(true);
+                PressToStart.SetActive(false);
                 bg.SetActive(false);
                 layerOrder.Add(runPanel);
                 Time.timeScale = 1;
@@ -44,6 +58,7 @@ public class UIController : MonoBehaviour
 
             case "death":
                 deathPanel.SetActive(true);
+                PressToStart.SetActive(false);
                 bg.SetActive(true);
                 layerOrder.Add(deathPanel);
                 Time.timeScale = 0;
@@ -51,6 +66,7 @@ public class UIController : MonoBehaviour
 
             case "settings":
                 settingsPanel.SetActive(true);
+                PressToStart.SetActive(false);
                 bg.SetActive(true);
                 layerOrder.Add(settingsPanel);
                 Time.timeScale = 0;
@@ -58,15 +74,28 @@ public class UIController : MonoBehaviour
 
             case "upgrades":
                 upgradesPanel.SetActive(true);
+                PressToStart.SetActive(false);
                 bg.SetActive(true);
                 layerOrder.Add(upgradesPanel);
                 Time.timeScale = 0;
                 break;
             case "run/boost":
                 boostPanel.SetActive(true);
+                PressToStart.SetActive(false);
                 bg.SetActive(true);
                 layerOrder.Add(boostPanel);
                 Time.timeScale = 0;
+                break;
+            case "pause":
+                pausePanel.SetActive(true);
+                PressToStart.SetActive(false);
+                bg.SetActive(true);
+                layerOrder.Add(pausePanel);
+                Time.timeScale = 0;
+                break;
+
+            default:
+                //restart game and dump error
                 break;
         }
     }
@@ -77,6 +106,7 @@ public class UIController : MonoBehaviour
         {
             case "home":
                 homePanel.SetActive(false);
+                PressToStart.SetActive(false);
                 layerOrder.Remove(homePanel);
                 break;
 
@@ -105,7 +135,12 @@ public class UIController : MonoBehaviour
                 layerOrder.Remove(boostPanel);
                 break;
 
+            case "PressToStart":
+                PressToStart.SetActive(false);
+                break;
+
             case "all":
+                PressToStart.SetActive(false);
                 HidePanel("home");
                 HidePanel("run");
                 HidePanel("death");

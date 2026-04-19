@@ -33,10 +33,10 @@ public class ButtonEvents : MonoBehaviour
     public void LoadTitleScreen() => SceneManager.LoadScene("Title");
     public void LoadScene(string name) => SceneManager.LoadScene(name);
     public void QuitGame() => Application.Quit();
-    public void UIShowUpgradeMenu() => FindFirstObjectByType<UIScript>().SetActivePanel(UIScript.ActivePanel.Upgrades);
-    public void UIShowMainMenu() => FindFirstObjectByType<UIScript>().SetActivePanel(UIScript.ActivePanel.MainMenu);
-    public void UIShowOptionsMenu() => FindFirstObjectByType<UIScript>().SetActivePanel(UIScript.ActivePanel.Options);
-    public void UIShowPauseMenu() => FindFirstObjectByType<UIScript>().SetActivePanel(UIScript.ActivePanel.Pause);
-    public void UIHideAllMenus() => FindFirstObjectByType<UIScript>().SetActivePanel(UIScript.ActivePanel.None);
+    public void UIShowUpgradeMenu() => FindFirstObjectByType<UIController>().ShowPanelExclusive("upgrades");
+    public void UIShowMainMenu() => FindFirstObjectByType<UIController>().ShowPanelExclusive("home");
+    public void UIShowOptionsMenu() => FindFirstObjectByType<UIController>().ShowPanelExclusive("settings");
+    public void UIShowPauseMenu() => FindFirstObjectByType<UIController>().ShowPanelExclusive("pause");
+    public void UIHideAllMenus() => FindFirstObjectByType<UIController>().HidePanel("all");
 
 }
