@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class SettingsManager : MonoBehaviour
     [Header("Sources")]
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    [Header("Saves")]
+    public SettingsProfile profile;
 
 
     private Toggle masterVolumeToggle;
@@ -111,5 +114,16 @@ public class SettingsManager : MonoBehaviour
             masterVolumeValue = masterVolumeSlider.value;
             AudioValues[0] = masterVolumeValue;
         }
+    }
+    public void SaveSettings()
+    {
+        profile.masterVolume = masterVolumeValue;
+        profile.masterEnabled = masterVolumeToggle.isOn;
+
+        profile.musicVolume = musicVolumeValue;
+        profile.musicEnabled = musicVolumeToggle.isOn;
+
+        profile.sfxVolume = sfxVolumeValue;
+        profile.sfxEnabled = sfxVolumeToggle.isOn;
     }
 }
