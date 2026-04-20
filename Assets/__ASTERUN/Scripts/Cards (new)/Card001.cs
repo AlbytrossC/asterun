@@ -1,10 +1,11 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Card001 : MonoBehaviour
 {
-    public enum cardID { speedMultiplier, shieldMaxCharges, instantSpeedBonus, instantShieldRefill, instantHeightBonus, scoreMultiplier }
+    public enum cardID { speedMultiplier, shieldCapacity, instantSpeedBonus, instantShieldRefill, instantHeightBonus, scoreMultiplier }
     public cardID myID;
     public int level = 1;
     public PlayerScript playerScript;
@@ -31,13 +32,39 @@ public class Card001 : MonoBehaviour
     {
         UpdateIconBrightness();
     }
-    public void CardEffect(bool trigger = false)
+    public void CardEffect()
     {
-        if (!trigger)
-            return;
 
-        playerScript.VelocityLimitUp();
-        playerScript.SetClimbMult(playerScript.wallClimbMulti * 1.05f);
+        switch (myID)
+        {
+            case cardID.speedMultiplier:
+                playerScript.VelocityLimitUp();
+                playerScript.SetClimbMult(playerScript.wallClimbMulti * 1.05f);
+                Debug.Log("[BOOST] Speed Multiplier!");
+                break;
+
+            case cardID.scoreMultiplier:
+                Debug.Log("[BOOST] Score Multiplier!");
+                break;
+
+            case cardID.shieldCapacity:
+                Debug.Log("[BOOST] Shield Capacity!");
+                break;
+
+            case cardID.instantSpeedBonus:
+                Debug.Log("[BOOST] Instant Speed Boost!");
+                break;
+
+            case cardID.instantShieldRefill:
+                Debug.Log("[BOOST] Instant Shield Refill!");
+                break;
+
+            case cardID.instantHeightBonus:
+                Debug.Log("[BOOST] Instant Height Boost!");
+                break;
+        }
+
+        
         ActivateCardVFX();
     }
 

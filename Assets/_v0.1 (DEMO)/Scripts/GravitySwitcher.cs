@@ -25,7 +25,7 @@ public class GravitySwitcher : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
 
         touchIsHeld = false;
         ToggleMarkerDirection(false);

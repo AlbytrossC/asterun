@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 60; //sets the target FPS
+        //Application.targetFrameRate = 60; //sets the target FPS
     }
 
     private void Update()

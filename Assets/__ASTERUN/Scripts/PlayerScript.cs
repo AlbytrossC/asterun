@@ -35,6 +35,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D _rb;
     private WallManager _wallManager;
 
+    private void Awake() => Application.targetFrameRate = 120;
     #region Fun
     public void Fun()
     {

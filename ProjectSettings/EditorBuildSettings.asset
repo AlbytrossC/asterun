@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/__ASTERUN/Scenes/Main_OLD.unity
     guid: 8f14ddd737bc47a4cbc4b13d3fe59619
+  - enabled: 1
+    path: Assets/__ASTERUN/Scenes/Main.unity
+    guid: a346da04e3ce5eb4ba1ef2c63f152428
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c2eb456e27d1d164f8723077dea1b145, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
