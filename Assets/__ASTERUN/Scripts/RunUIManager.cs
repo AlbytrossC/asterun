@@ -18,10 +18,12 @@ public class RunUIManager : MonoBehaviour
     [InspectorButton("OnRemoveShieldClicked")] public bool RemoveMax;
     [InspectorButton("OnChargeShieldClicked")] public bool AddCharge;
     [InspectorButton("OnTakeDamageClicked")] public bool TakeDamage;
-    private void OnAddShieldClicked() => AddMaxShieldCharge();
-    private void OnRemoveShieldClicked() => RemoveMaxShieldCharge();
+    [InspectorButton("OnUpdateShieldUI")] public bool UpdateSHL;
+    private void OnAddShieldClicked() => AddShieldCharge();
+    private void OnRemoveShieldClicked() => RemoveShieldCharge();
     private void OnChargeShieldClicked() => ChargeShields();
     private void OnTakeDamageClicked() => TakeDamageTemp();
+    private void OnUpdateShieldUI() => UpdateShieldUI();
 
     //public Slider shieldSlider;
 
@@ -32,6 +34,10 @@ public class RunUIManager : MonoBehaviour
     public GameObject shieldChargePrefab;
     public Transform shieldChargeParent;
     public List<GameObject> shieldPrefabs = new List<GameObject>();
+
+    public int activeCharges;
+    public int enabledActiveCharges;
+    public List<GameObject> iconList = new List<GameObject>(3);
     //public float chargeDrainSpeed;
     //public float chargeFillSpeed;
 
@@ -42,8 +48,7 @@ public class RunUIManager : MonoBehaviour
     {
         _psm = FindFirstObjectByType<PlayerStatManager>();
         localTimer = 0;
-        maxShieldCharges = shieldPrefabs.Count;
-        currentShieldCharge = 0;
+        enabledActiveCharges = 0;
         shieldIsActive = true;
     }
     public void Update()
@@ -77,49 +82,97 @@ public class RunUIManager : MonoBehaviour
         localTimer = 0;
     }
 
+    
+    
+    
+
+    /// <summary>
+    /// //////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+    /// 
+    public void AddShieldCharge()
+    {
+        if (activeCharges <= iconList.Count)
+            activeCharges++;
+            UpdateShieldUI();
+    }
+    public void RemoveShieldCharge()
+    {
+        iconList[iconList.Count - 1].SetActive(false);
+            activeCharges--;
+            UpdateShieldUI();
+    }
+    public void ChargeShields()
+    {
+        if (enabledActiveCharges >= iconList.Count)
+        {
+            enabledActiveCharges = iconList.Count;
+        }
+        else
+        {
+            enabledActiveCharges++;
+        }
+
+
+
+        UpdateShieldUI();
+    }
     public void TakeDamageTemp()
     {
         if (!shieldIsActive)
-            Debug.Log("Kill Player! "+currentShieldCharge+"/"+shieldPrefabs.Count+" shield!"); //FindFirstObjectByType<PlayerScript>().onDeath.Invoke();
+            FindFirstObjectByType<PlayerScript>().onDeath.Invoke();
         else
             ReduceShields();
-
-        if (currentShieldCharge < shieldPrefabs.Count)
-            shieldIsActive=false;
-    }
-    private void SetShields()
-    {
-        for (int i = 0; i < shieldPrefabs.Count-1; i++)
-        {
-            if (i <= currentShieldCharge)
-                shieldPrefabs[i].GetComponent<shieldPrefab>().SetFull();
-            else shieldPrefabs[i].GetComponent<shieldPrefab>().SetEmpty();
-        }
-            
-
-    }
-
-    private void ChargeShields()
-    {
-        currentShieldCharge++;
-        SetShields();
     }
     private void ReduceShields()
     {
-        currentShieldCharge--;
-        SetShields();
+        if (enabledActiveCharges <= 0)
+        {
+            enabledActiveCharges = 0;
+        }
+        else
+        {
+            enabledActiveCharges--;
+        }
+        UpdateShieldUI();
+    }
+    public void UpdateShieldUI()
+    {
+        for (int i = 0; i < iconList.Count; i++)
+        {
+            if (i + 1 <= activeCharges)
+            {
+                iconList[i].SetActive(true);
+            }
+            else
+            {
+                iconList[i].SetActive(false);
+            }
+                
+            if (i + 1 <= enabledActiveCharges)
+            {
+                iconList[i].GetComponent<shieldPrefab>().SetFull();
+            }
+                
+            else
+            {
+                iconList[i].GetComponent<shieldPrefab>().SetEmpty();
+            }
+                
+        }
+
+        if (enabledActiveCharges > 0)
+            shieldIsActive = true;
+        else shieldIsActive = false;
+
+        /*for (int i = 0; i < activeCharges; i++)
+        {
+            
+        }*/
     }
 
-    public void AddMaxShieldCharge()
-    {
-
-        shieldPrefabs.Add(Instantiate(shieldChargePrefab, shieldChargeParent));
-        maxShieldCharges++;
-    }
-    public void RemoveMaxShieldCharge()
-    {
-        Destroy(shieldPrefabs[shieldPrefabs.Count-1]);
-        shieldPrefabs.RemoveAt(shieldPrefabs.Count-1);
-        maxShieldCharges--;
-    }
+    /// <summary>
+    /// //////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+   
 }

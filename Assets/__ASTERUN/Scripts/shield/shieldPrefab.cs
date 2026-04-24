@@ -7,7 +7,6 @@ public class shieldPrefab : MonoBehaviour
     private void OnEnable()
     {
         isFull = false;
-        ToggleActiveIcon();
     }
 
     public void ToggleActiveIcon()

@@ -16,8 +16,6 @@ public class RangeScript : MonoBehaviour
     {
         if (collision.gameObject.layer == 11)
             wallManager.nearbyWalls.Add(collision.gameObject);
-        if (collision.gameObject.layer == 12)
-            _UI.TakeDamageTemp();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
